@@ -14,12 +14,14 @@ class SubmissionTest extends TestCase
         $response = $this->postJson('/api/submit', [
             'name' => 'John Doe',
             'email' => 'john.doe@example.com',
-            'message' => 'This is a test message.',
+            'message' => 'This is a test demo message.',
         ]);
 
         $response->assertStatus(200)
-            ->assertJson([
-                'status' => 'Submission received',
-            ]);
+        ->assertJson([
+            'status' => 'success',
+            'code' => '200',
+            'message' => 'Submission received.',
+        ]);
     }
 }
